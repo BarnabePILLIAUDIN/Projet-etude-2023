@@ -1,4 +1,3 @@
-import Hello from "@/components/Hello"
 import Page from "@/components/Page"
 
 
@@ -6,7 +5,7 @@ import Page from "@/components/Page"
 export default function Home() {
   return (
     <Page>
-      <Hello></Hello>
+      <h1>Hello</h1>
     </Page>
   )
 }
