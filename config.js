@@ -13,6 +13,11 @@ const config = {
       key: process.env["JWT_KEY"],
     },
   },
+  defaultAdmin: {
+    enabled: false,
+    name: process.env["DEFAULT_ADMIN_NAME"],
+    password: process.env["DEFAULT_ADMIN_PASSWORD"],
+  },
 }
 
 export default config

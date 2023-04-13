@@ -6,8 +6,20 @@ const myAccount = () => {
   const [first, setFirst] = useState("")
   const [last, setLast] = useState("")
   const [id, setId] = useState("")
-  const [isAdmin,setIsAdmin] = useState(false)
-  
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [reseting,setReseting] = useState(false) 
+
+  const handleReset = (e) => {
+    e.preventDefault()
+    const newPasswordInput = document.getElementById("newPassword")
+    const confirmPasswordInput = document.getElementById("confirmPassword")
+
+    console.log(newPasswordInput.value,confirmPasswordInput.value) 
+
+    if (newPasswordInput.value == confirmPasswordInput.value) {
+      e.target.submit()
+    }
+  }
   
   useEffect(() => {
     const token = localStorage.getItem("easyRoomJWT")
@@ -30,6 +42,19 @@ const myAccount = () => {
           <h3>Son id est { id}</h3>
         </> : <>
         </>
+      }
+      {
+        reseting ? <>
+          <form action={`api/resetPassword/${id}`} method="post" onSubmit={(e) => { handleReset(e) }} className="flex flex-col">
+            <label htmlFor="newPassword">New password</label>
+            <input type="password" name="newPassword" id="newPassword" className="border border-black" />
+            <label htmlFor="newPassword">ConfirmPassword</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" className="border border-black" />
+            <input type="submit" value="Change password" />
+          </form>
+        </>
+        : <> <button onClick={() => { console.log("pressed"); setReseting(true) }}>Reset password</button>
+      </>
       }
     </div>
   )

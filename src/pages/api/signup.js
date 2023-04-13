@@ -2,11 +2,9 @@ import mongoose from "mongoose"
 import config from "../../../config"
 import UserModel from "@/api/db/models/UserModel"
 import hashPassword from "@/api/utils/hashPassword"
-import jwt from "jsonwebtoken"
 
 const createUser = async (req, res) => {
   const { first, last, password } = req.body
-  let id
   const hashedPassword = hashPassword(password)
   const login = `${first}.${last}`
   await mongoose.connect(config.db.uri)
@@ -26,7 +24,6 @@ const createUser = async (req, res) => {
       password: hashedPassword,
       isAdmin: false,
     })
-    id = user._id
     await user.save()
   } catch (err) {
     console.error(err) // eslint-disable-line
@@ -41,17 +38,9 @@ const createUser = async (req, res) => {
     return
   }
 
-  const payload = {
-    first,
-    last,
-    id,
-    isAdmin: false,
-  }
-  const token = jwt.sign(payload, config.security.jwt.key)
-
   await mongoose.disconnect()
   res.status(200)
-  res.redirect(`/setJWT/${token}`)
+  res.redirect("/")
 }
 
 export default createUser

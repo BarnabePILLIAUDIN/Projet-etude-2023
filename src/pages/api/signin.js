@@ -8,7 +8,7 @@ const signin = async (req, res) => {
   const { login, password } = req.body
 
   if (!login || !password) {
-    res.satus(400)
+    res.status(400)
     res.send({ error: "Missing either password, login, or both " })
 
     return
@@ -23,6 +23,21 @@ const signin = async (req, res) => {
     await mongoose.disconnect()
 
     if (result.length == 0) {
+      if (config.defaultAdmin.enabled) {
+        if (
+          login == config.defaultAdmin.name &&
+          password == config.defaultAdmin.password
+        ) {
+          const payload = {
+            first: config.defaultAdmin.name,
+            isAdmin: true,
+          }
+          const token = jwt.sign(payload, config.security.jwt.key)
+          res.status(200)
+          res.redirect(`/setJWT/${token}`)
+        }
+      }
+
       res.status(404)
       res.send({ status: 404, error: "User not found" })
 
