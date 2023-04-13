@@ -1,7 +1,7 @@
 import Page from "@/components/Page"
-import UserForm from "@/components/UserForm"
+import UserForm from "@/components/users/UserForm"
 
-const signin = () => {
+const Signin = () => {
     const formData = [
     {
       label: "Login",
@@ -24,4 +24,4 @@ const signin = () => {
   )
 }
 
-export default signin
+export default Signin

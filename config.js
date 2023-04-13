@@ -14,7 +14,7 @@ const config = {
     },
   },
   defaultAdmin: {
-    enabled: false,
+    enabled: true,
     name: process.env["DEFAULT_ADMIN_NAME"],
     password: process.env["DEFAULT_ADMIN_PASSWORD"],
   },

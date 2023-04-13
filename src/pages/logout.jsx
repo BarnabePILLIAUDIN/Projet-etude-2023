@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 
-const logout = () => {
+const Logout = () => {
   const router = useRouter()
   useEffect(() => {
     localStorage.removeItem("easyRoomJWT")
@@ -15,4 +15,4 @@ const logout = () => {
     )
 }
 
-export default logout
+export default Logout

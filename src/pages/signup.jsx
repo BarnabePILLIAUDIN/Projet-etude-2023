@@ -1,9 +1,9 @@
 import Page from "@/components/Page"
-import UserForm from "@/components/UserForm"
+import UserForm from "@/components/users/UserForm"
 import { useEffect, useState } from "react"
 import jwt from "jsonwebtoken"
 
-const createUser = () => {
+const Signup = () => {
     const formData = [
     {
       label: "First name",
@@ -50,4 +50,4 @@ const createUser = () => {
   )
 }
 
-export default createUser
+export default Signup

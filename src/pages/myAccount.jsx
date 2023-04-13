@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import jwt  from "jsonwebtoken"
 
-const myAccount = () => {
+const MyAccount = () => {
   const [isLoged,setIsLoged] = useState(false)
   const [first, setFirst] = useState("")
   const [last, setLast] = useState("")
@@ -14,11 +14,13 @@ const myAccount = () => {
     const newPasswordInput = document.getElementById("newPassword")
     const confirmPasswordInput = document.getElementById("confirmPassword")
 
-    console.log(newPasswordInput.value,confirmPasswordInput.value) 
-
     if (newPasswordInput.value == confirmPasswordInput.value) {
       e.target.submit()
+      
+      return
     }
+
+    alert("Passwords are not the same")
   }
   
   useEffect(() => {
@@ -53,11 +55,11 @@ const myAccount = () => {
             <input type="submit" value="Change password" />
           </form>
         </>
-        : <> <button onClick={() => { console.log("pressed"); setReseting(true) }}>Reset password</button>
+        : <> <button onClick={() => { setReseting(true) }}>Reset password</button>
       </>
       }
     </div>
   )
 }
 
-export default myAccount
+export default MyAccount
