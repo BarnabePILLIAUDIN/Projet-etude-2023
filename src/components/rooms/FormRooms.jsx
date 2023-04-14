@@ -1,4 +1,6 @@
 import axios from "axios"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 const FormRooms = () => {
@@ -6,6 +8,8 @@ const FormRooms = () => {
   const [selectedFacilities, setSelectedFacilities] = useState([])
   const [roomNumber, setRoomNumber] = useState(0)
   const [capacity, setCapacity] = useState(0)
+
+  const router = useRouter()
 
   const selected = (e) => {
     const newArray = selectedFacilities
@@ -39,12 +43,14 @@ const FormRooms = () => {
       roomNumber: roomNumber,
       capacity: capacity,
       facilities: selectedFacilities,
+    }).then(() => {
+      router.push("/")
     })
   }
 
   useEffect(() => {
-    axios.get("/api/facilities/getAllFacilities").then(async (res) => {
-      await setGetFacilities(res.data)
+    axios.get("/api/facilities/getAllFacilities").then((res) => {
+      setGetFacilities(res.data)
     })
   }, [])
 
@@ -78,13 +84,14 @@ const FormRooms = () => {
           >
             <optgroup label="Facilities">
               <option value="default">Select Facility</option>
-              {getFacilities.map((facility) => (
-                <option value={facility.name} key={facility.name}>
+              {getFacilities.map((facility,key) => (
+                <option value={facility.name} key={`${facility.name}${key}`}>
                   {facility.name}
                 </option>
               ))}
             </optgroup>
           </select>
+          <h2>Create one<Link href="/createFacility" className="text-blue-500">clicker here</Link></h2>
           <button type="submit" onClick={(e) => handleForm(e)} className="bg-black text-white py-4 px-2 mt-5">
             add
           </button>

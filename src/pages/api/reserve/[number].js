@@ -40,10 +40,12 @@ const reserve = async (req, res) => {
     if (resultUser.length === 0) {
       res.status(404)
       res.send({ status: 404, error: "User not found!" })
+
+      return
     }
 
     const { first, last } = resultUser
-    room.reservedBy = `${first} ${last}`
+    room.reservedBy = `${first}${last}`
     await room.save()
     res.status(200)
     res.redirect("/")

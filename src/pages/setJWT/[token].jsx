@@ -9,17 +9,17 @@ export async function getServerSideProps({ query: { token } }) {
   }
 }
 
-const setJWT = (props) => {
+const SetJWT = (props) => {
   const { token } = props
   const router = useRouter()
 
   useEffect(() => {
     localStorage.setItem("easyRoomJWT", token)
-    router.push("/myAccount")
+    router.push("/")
   }, [])
   
   return <h2>You will be redirected shortly</h2>
 }
 
 
-export default setJWT
+export default SetJWT

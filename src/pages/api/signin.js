@@ -33,8 +33,11 @@ const signin = async (req, res) => {
             isAdmin: true,
           }
           const token = jwt.sign(payload, config.security.jwt.key)
+
           res.status(200)
           res.redirect(`/setJWT/${token}`)
+
+          return
         }
       }
 
@@ -59,6 +62,7 @@ const signin = async (req, res) => {
       isAdmin: user.isAdmin,
     }
     const token = jwt.sign(payload, config.security.jwt.key)
+
     res.status(200)
     res.redirect(`/setJWT/${token}`)
   } catch (err) {

@@ -4,27 +4,6 @@ import { useEffect, useState } from "react"
 import jwt from "jsonwebtoken"
 
 const Signup = () => {
-    const formData = [
-    {
-      label: "First name",
-      name: "first",
-      placeholder :"User's first name",
-      type:"text"
-    },
-    {
-      label: "Last name",
-      name: "last",
-      placeholder: "User's last name",
-      type: "text"
-    },
-    {
-      label: "Password",
-      name: "password",
-      placeholder: "Default password",
-      type:"password"
-    },
-    ]
-  
   const [isAdmin,setIsAdmin] = useState(false)
   
   

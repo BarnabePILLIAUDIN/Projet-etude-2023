@@ -6,8 +6,8 @@ const ListRooms = () => {
   const [getRooms, setGetRooms] = useState([])
 
   useEffect(() => {
-    axios.get("/api/rooms/getAllRooms").then(async (res) => {
-      await setGetRooms(res.data)
+    axios.get("/api/rooms/getAllRooms").then( (res) => {
+      setGetRooms(res.data)
     })
   }, [])
 

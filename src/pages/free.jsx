@@ -4,9 +4,10 @@ import ReservedRooms from "@/components/rooms/ReservedRooms"
 import Link from "next/link"
 import jwt from "jsonwebtoken"
 import { useEffect, useState } from "react"
+import BackHomeButton from "@/components/HomePages/BackHomeButton"
 
 const Reserve = () => {
-    const [isLoged,setIsLoged] = useState(false)
+  const [isLoged,setIsLoged] = useState(false)
   const [first, setFirst] = useState("")
   const [last, setLast] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
@@ -25,13 +26,16 @@ const Reserve = () => {
   
   return (
     <Page title="EasyRoom: reserve a room">
-      <h2>Reserve a Room</h2>
+      <h2>Free a room</h2>
       {
         isLoged
           ? <>
             {isAdmin
-              ? <ReservedRooms />
-              : <MyReservedRooms name={`${first} ${last}`}
+              ? <>
+                <ReservedRooms />
+                <BackHomeButton/>
+              </>
+              : <MyReservedRooms name={`${first}${last}`}
               />}
             </>
           : <>

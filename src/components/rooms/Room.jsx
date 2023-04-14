@@ -2,9 +2,9 @@ const Room = (props) => {
   const { roomNumber, capacity, facilities, id } = props
 
   return (
-    <div>
-      <h1>{`Salle N° ${roomNumber}`}</h1>
-      <h2>{`Capacité : ${capacity}`}</h2>
+    <div className="m-[100px] p-[20px] text-center rounded-sm bg-blue-100 min-w-[350px] min-h-[260px] relative grid overflow-hidden">
+      <h2 className="text-5xl bg-blue-300/25 rounded-sm ml-[500px] mr-[500px]">{`Salle N° ${roomNumber}`}</h2>
+      <h3 className="text-3xl mt-[5px]">{`Capacité : ${capacity}`}</h3>
       {facilities.map((facility, index) => (
         <h2 key={index}>{`Equipement ${index} : ${facility}`}</h2>
       ))}

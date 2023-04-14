@@ -1,25 +1,31 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import ReservedRoomsCard from "./ReservedRoomsCard"
+import BackHomeButton from "../HomePages/BackHomeButton"
 
 const MyReservedRooms = (props) => {
   const [rooms,setRooms] = useState([])
   const { name } = props
-  console.log(name)
+
   useEffect(() => {
-    axios.post("/api/getMyRooms", { name }).then(({ data: { data } }) => {
+    axios.get(`/api/getMyRooms/${name}`).then(({ data: { data } }) => {
       setRooms(data)
-      console.log(data) 
     })
   },[])
+
+  useEffect(() => {
+  },[rooms])
 
   return (
     <div>
       {
         rooms.map(({ roomNumber, capacity, facilities }, key) => {
-          <ReservedRoomsCard roomNumber={roomNumber} capacity={capacity} facilities={facilities} key={ key} />
+          return(
+            <ReservedRoomsCard roomNumber={roomNumber} capacity={capacity} facilities={facilities} key={key} />
+          )
         })
       }
+      <BackHomeButton/>
     </div>
   )
 }

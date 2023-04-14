@@ -6,8 +6,8 @@ const ReservedRooms = () => {
   const [getRooms, setGetRooms] = useState([])
 
   useEffect(() => {
-    axios.get("/api/rooms/getAllRooms").then(async (res) => {
-      await setGetRooms(res.data)
+    axios.get("/api/rooms/getAllRooms").then((res) => {
+      setGetRooms(res.data)
     })
   }, [])
 
@@ -20,6 +20,7 @@ const ReservedRooms = () => {
             capacity={room.capacity}
             facilities={room.facilities}
             isReserved={room.isReserved}
+            reservedBy={room.reservedBy}
             key={room._id}
           />
         ) : (

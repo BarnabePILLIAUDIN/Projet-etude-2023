@@ -13,6 +13,7 @@ const postFacilities = async (req, res) => {
     })
   } finally {
     await mongoose.disconnect()
+    res.status()
     res.redirect("/createRoom")
   }
 }

@@ -1,7 +1,7 @@
 import FormField from "./FormField"
 
 const UserForm = (props) => {
-  const {formData,action}=props
+  const {formData,action,buttonValue}=props
 
   return (
     <form action={action} method="post">
@@ -10,7 +10,9 @@ const UserForm = (props) => {
           <FormField user={user} key={key}></FormField>
         ))
       }
-      <button type="submit">Add user</button>
+      <div className="text-center">
+        <button type="submit" className="bg-blue-700 hover:bg-blue-500 active:bg-blue-800 text-white font-bold py-2 px-4 rounded mb-5 mt-6 transition-colors duration-150">{ buttonValue}</button>
+      </div>
     </form>
   )
 }

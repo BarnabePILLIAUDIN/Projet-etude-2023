@@ -6,7 +6,7 @@ const getAllRooms = async (req, res) => {
   await mongoose.connect(config.db.uri)
 
   try {
-    const rooms = await RoomsModel.find()
+    const rooms = await RoomsModel.find().sort({ roomNumber: 1 })
     res.status(200).json(rooms)
   } finally {
     await mongoose.disconnect()

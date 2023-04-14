@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/solid"
 import jwt  from "jsonwebtoken"
+import Link from "next/link"
 
 const MyAccount = () => {
   const [isLoged,setIsLoged] = useState(false)
@@ -39,10 +41,10 @@ const MyAccount = () => {
   return (
     <div>
       {
-        isLoged ? <>
-          <h2>{first} {last} {isAdmin ? "est admin" : "n'est pas admin"}</h2>
-          <h3>Son id est { id}</h3>
-        </> : <>
+        isLoged ? <div className="m-[100px] p-[20px] text-center rounded-sm bg-blue-100 min-w-[50px] min-h-[50px] relative grid overflow-hidden">
+          <h2 className="text-3xl bg-blue-300/25 rounded-sm ml-[500px] mr-[500px] py-4">{`${first} ${last}`}</h2>
+          <h3 className="bg-blue-700 rounded-full p-[5px] text-white pl-[10px] pr-[10px] m-auto mt-[10px] py-2">{isAdmin ? "Admin" : "User"}</h3>
+        </div> : <>
         </>
       }
       {
@@ -58,6 +60,12 @@ const MyAccount = () => {
         : <> <button onClick={() => { setReseting(true) }}>Reset password</button>
       </>
       }
+      <Link href="/logout">Logout</Link>
+      <div>
+      <Link href="/">
+        <ClipboardDocumentCheckIcon className="h-32 w-32 text-white bg-black rounded-full p-5 right-10 bottom-10 hover:scale-110 hover:drop-shadow-hover duration-700 fixed" />
+      </Link>
+    </div>
     </div>
   )
 }
