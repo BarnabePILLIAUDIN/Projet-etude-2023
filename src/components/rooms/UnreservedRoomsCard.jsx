@@ -6,10 +6,14 @@ const UnreservedRoomsCard = (props) => {
   const router = useRouter()
 
   const handleReserve = () => {
-    axios.post(`/api/reserve/${roomNumber}`, { userId }).then(() => {
+    axios.post(`/api/reserve/${roomNumber}`, { userId })
+    setTimeout(() => {
       router.push("/free")
-    })
+    },2000)
   }
+      //.then(() => {
+      //router.push("/free")
+   // })
 
   return (
     <div className="m-[100px] p-[20px] text-center rounded-sm bg-blue-100 min-w-[350px] min-h-[260px] relative grid overflow-hidden">

@@ -19,9 +19,18 @@ const UnreservedRooms = (props) => {
   
 
   useEffect(() => {
-    const newArray = rooms.filter(({facilities})=>facilities.includes(selectedFacility))
-    setAvailableRooms(newArray)
-  },[selectedFacility])
+    const newArray = rooms.filter(({ facilities }) => facilities.includes(selectedFacility))
+
+    const facilitiesName = facilities.map(({ name }) => name) 
+    
+    if (facilitiesName.includes(selectedFacility)) {
+      setAvailableRooms(newArray)
+
+      return
+    }
+
+    setAvailableRooms(rooms)
+  },[selectedFacility,rooms,facilities])
 
   if (rooms.length==0) {
     return (

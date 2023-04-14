@@ -8,8 +8,7 @@ const resetPassword = async (req, res) => {
 
   try {
     await UserModel.findByIdAndDelete(id)
-    await mongoose.disconnect()
-    res.staus(200)
+    res.status(200)
     res.redirect("/")
   } catch (error) {
     res.send({ error })
