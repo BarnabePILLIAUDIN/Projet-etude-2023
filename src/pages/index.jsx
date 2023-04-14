@@ -5,12 +5,14 @@ import Page from "@/components/Page"
 import { useEffect, useState } from "react"
 import jwt from "jsonwebtoken"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 
 export default function Home() {
   const [isLoged, setIsLoged] = useState(false)
   const [id, setId] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
+  const router = useRouter()
 
     useEffect(() => {
     const token = localStorage.getItem("easyRoomJWT")
@@ -20,7 +22,11 @@ export default function Home() {
       const cleanToken = jwt.decode(token)
       setId(cleanToken.id)
       setIsAdmin(cleanToken.isAdmin)
+
+      return
     }
+      
+    router.push("/signin")
   }, [])
   
   if (!isLoged) {
