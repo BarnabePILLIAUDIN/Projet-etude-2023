@@ -11,6 +11,7 @@ const reserve = async (req, res) => {
     const result = await RoomsModel.find({ roomNumber: number })
 
     if (result.length > 1) {
+      console.log("Too much") //eslint-disable-line
       res.status(500)
       res.send({ status: 500, error: "Too much rooms with this id!" })
       await mongoose.disconnect()
@@ -19,6 +20,7 @@ const reserve = async (req, res) => {
     }
 
     if (result.length === 0) {
+      console.log("Not enough!") //eslint-disable-line
       res.status(404)
       res.send({ status: 404, error: "Room not found!" })
     }
@@ -30,6 +32,7 @@ const reserve = async (req, res) => {
     res.status(200)
     res.redirect("/")
   } catch (error) {
+    console.log(error) //eslint-disable-line
     res.status(500)
     res.send({ status: 500, error })
   } finally {

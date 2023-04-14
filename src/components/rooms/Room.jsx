@@ -6,7 +6,7 @@ const Room = (props) => {
       <h2 className="text-5xl bg-blue-300/25 rounded-sm ml-[500px] mr-[500px]">{`Salle N° ${roomNumber}`}</h2>
       <h3 className="text-3xl mt-[5px]">{`Capacité : ${capacity}`}</h3>
       {facilities.map((facility, index) => (
-        <h2 key={index}>{`Equipement ${index} : ${facility}`}</h2>
+        <h2 key={index}>{`${facility}`}</h2>
       ))}
       <a href={`/api/rooms/deleteRoom/${id}`}>Supprimer</a>
     </div>

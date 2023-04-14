@@ -42,7 +42,7 @@ const signin = async (req, res) => {
       }
 
       res.status(404)
-      res.send({ status: 404, error: "User not found" })
+      res.redirect("/invalidCredentials")
 
       return
     }

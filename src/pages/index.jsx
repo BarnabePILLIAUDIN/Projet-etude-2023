@@ -11,9 +11,9 @@ export default function Home() {
   const [isLoged, setIsLoged] = useState(false)
   const [id, setId] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
+  
   const router = useRouter()
-
-    useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("easyRoomJWT")
     
     if (token) {

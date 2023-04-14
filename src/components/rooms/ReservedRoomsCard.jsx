@@ -6,7 +6,7 @@ const ReservedRoomsCard = (props) => {
   const router = useRouter()
 
   const handleFree = () => {
-    axios.patch(`/api/free/${roomNumber}`).then(() => {
+    axios.get(`/api/free/${roomNumber}`).then(() => {
       router.push("/")
     })
   }

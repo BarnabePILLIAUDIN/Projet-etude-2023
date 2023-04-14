@@ -39,13 +39,15 @@ const FormRooms = () => {
 
   const handleForm = (e) => {
     e.preventDefault()
-    axios.post("/api/rooms/postRoom", {
-      roomNumber: roomNumber,
-      capacity: capacity,
-      facilities: selectedFacilities,
-    }).then(() => {
-      router.push("/")
-    })
+    axios
+      .post("/api/rooms/postRoom", {
+        roomNumber: roomNumber,
+        capacity: capacity,
+        facilities: selectedFacilities,
+      })
+      .then(() => {
+        router.push("/")
+      })
   }
 
   useEffect(() => {
@@ -60,11 +62,11 @@ const FormRooms = () => {
         <form className="flex flex-col">
           <label htmlFor="roomNumber">Room number</label>
           <input
-          type="number"
-          name="roomNumber"
-          id="roomNumber"
-          onChange={(e) => setRoomNumber(e.target.value)}
-          className="border border-black"
+            type="number"
+            name="roomNumber"
+            id="roomNumber"
+            onChange={(e) => setRoomNumber(e.target.value)}
+            className="border border-black"
           />
           <label htmlFor="capacity">Capacity</label>
           <input
@@ -84,15 +86,24 @@ const FormRooms = () => {
           >
             <optgroup label="Facilities">
               <option value="default">Select Facility</option>
-              {getFacilities.map((facility,key) => (
+              {getFacilities.map((facility, key) => (
                 <option value={facility.name} key={`${facility.name}${key}`}>
                   {facility.name}
                 </option>
               ))}
             </optgroup>
           </select>
-          <h2>Create one<Link href="/createFacility" className="text-blue-500">clicker here</Link></h2>
-          <button type="submit" onClick={(e) => handleForm(e)} className="bg-black text-white py-4 px-2 mt-5">
+          <h2>
+            Create one
+            <Link href="/createFacility" className="text-blue-500">
+              clicker here
+            </Link>
+          </h2>
+          <button
+            type="submit"
+            onClick={(e) => handleForm(e)}
+            className="bg-black text-white py-4 px-2 mt-5"
+          >
             add
           </button>
         </form>

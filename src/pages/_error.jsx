@@ -1,12 +1,14 @@
+import { useRouter } from "next/router"
 import { useEffect } from "react"
-
-const { useRouter } = require("next/router")
 
 const Error = () => {
   const router = useRouter()
 
   useEffect(() => {
-    router.push("/")
+    setTimeout(() => {
+      console.log("error from the api")//eslint-disable-line
+      router.push("/")
+    },500)
   })
 
   return (
