@@ -7,7 +7,6 @@ import jwt from "jsonwebtoken"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-
 export default function Home() {
   const [isLoged, setIsLoged] = useState(false)
   const [id, setId] = useState("")
@@ -45,7 +44,7 @@ export default function Home() {
             <HomeAdmin id={id} />
             <div>
               <Link href="/myAccount">
-                <UserCircleIcon className="h-32 w-32 text-white bg-black rounded-full p-5 right-10 bottom-10 hover:scale-110 hover:drop-shadow-hover duration-700 fixed" />
+                <UserCircleIcon className="h-32 w-32 text-white bg-black rounded-full p-5 left-10 bottom-10 hover:scale-110 hover:drop-shadow-hover duration-700 fixed" />
               </Link>
             </div>
           </>

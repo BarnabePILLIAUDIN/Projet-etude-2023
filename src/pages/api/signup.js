@@ -40,7 +40,7 @@ const createUser = async (req, res) => {
 
   await mongoose.disconnect()
   res.status(200)
-  res.redirect("/")
+  res.redirect("/users")
 }
 
 export default createUser
