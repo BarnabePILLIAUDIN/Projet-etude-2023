@@ -6,7 +6,7 @@ import React from "react"
 
 const ManageFacilities = () => {
   return (
-    <Page>
+    <Page title="EasyRooms: Manage facilities">
       <ListFacility />
       <Link href="/createFacility">
         <ClipboardDocumentListIcon className="h-32 w-32 text-white bg-black rounded-full p-5 right-10 bottom-10 hover:scale-110 hover:drop-shadow-hover duration-700 fixed" />

@@ -50,7 +50,6 @@ const reserve = async (req, res) => {
     res.status(200)
     res.redirect("/")
   } catch (error) {
-    console.log(error) //eslint-disable-line
     res.status(500)
     res.send({ status: 500, error })
   } finally {

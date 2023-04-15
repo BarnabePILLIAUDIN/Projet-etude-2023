@@ -1,50 +1,115 @@
 import Link from "next/link"
-import React from "react"
 
 const AdminHeader = (props) => {
   const { link } = props
 
   return (
-    <div className="flex justify-around text-5xl bg-emerald-500 pb-10 pt-10">
+    <div className="flex justify-around text-4xl bg-gray-900 pb-10 pt-10 ">
       {link == "home" ? (
         <>
-          <Link href="/" className="place-items-center text-red-600">
+          <Link
+            href="/"
+            className="text-purple-400 hover:text-purple-800 transition-colors duration-300"
+          >
             Reserve
           </Link>
-          <Link href="/createRoom">Rooms</Link>
-          <Link href="/createFacility">Facilities</Link>
-          <Link href="/users">Users</Link>
+          <Link
+            href="/createRoom"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Rooms
+          </Link>
+          <Link
+            href="/createFacility"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Facilities
+          </Link>
+          <Link
+            href="/users"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Users
+          </Link>
         </>
       ) : link == "rooms" ? (
         <>
-          <Link href="/" className="place-items-center">
+          <Link
+            href="/"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
             Reserve
           </Link>
-          <Link href="/createRoom" className="text-red-600">
+          <Link
+            href="/createRoom"
+            className="text-purple-400 hover:text-purple-800 transition-colors duration-300"
+          >
             Rooms
           </Link>
-          <Link href="/createFacility">Facilities</Link>
-          <Link href="/users">Users</Link>
+          <Link
+            href="/createFacility"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Facilities
+          </Link>
+          <Link
+            href="/users"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Users
+          </Link>
         </>
       ) : link == "facilities" ? (
         <>
-          <Link href="/" className="place-items-center">
+          <Link
+            href="/"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
             Reserve
           </Link>
-          <Link href="/createRoom">Rooms</Link>
-          <Link href="/createFacility" className="text-red-600">
+          <Link
+            href="/createRoom"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Rooms
+          </Link>
+          <Link
+            href="/createFacility"
+            className="text-purple-400 hover:text-purple-800 transition-colors duration-300"
+          >
             Facilities
           </Link>
-          <Link href="/users">Users</Link>
+          <Link
+            href="/users"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Users
+          </Link>
         </>
       ) : link == "users" ? (
         <>
-          <Link href="/" className="place-items-center">
+          <Link
+            href="/"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
             Reserve
           </Link>
-          <Link href="/createRoom">Rooms</Link>
-          <Link href="/createFacility">Facilities</Link>
-          <Link href="/users" className="text-red-600">
+          <Link
+            href="/createRoom"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Rooms
+          </Link>
+          <Link
+            href="/createFacility"
+            className="text-gray-200 hover:text-purple-800 transition-colors duration-300"
+          >
+            Facilities
+          </Link>
+          <Link
+            href="/users"
+            className="text-purple-400 hover:text-purple-800 transition-colors duration-300"
+          >
             Users
           </Link>
         </>

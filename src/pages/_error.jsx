@@ -6,9 +6,8 @@ const Error = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("error from the api")//eslint-disable-line
       router.push("/")
-    },500)
+    }, 500)
   })
 
   return (
