@@ -85,7 +85,6 @@ const MyAccount = () => {
         </>
       ) : (
         <>
-          {" "}
           <button
             onClick={() => {
               setReseting(true)
