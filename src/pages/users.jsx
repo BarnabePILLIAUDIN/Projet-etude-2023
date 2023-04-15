@@ -53,7 +53,7 @@ const Users = () => {
   }, [])
 
   return (
-    <Page>
+    <Page title="EasyRooms: Manage users">
       {isAdmin ? (
         <>
           <AdminHeader link="users" />

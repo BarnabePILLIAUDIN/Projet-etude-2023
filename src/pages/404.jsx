@@ -2,7 +2,7 @@ import Page from "@/components/Page"
 
 const Handle404 = () => {
   return (
-    <Page>
+    <Page title="EasyRoom: 404 not found">
       <h1 className="bg-gray-900 text-white text-center font-semibold py-8 text-4xl">
         OOOOPSS! I THINK WE HAVE A PROBLEM
       </h1>

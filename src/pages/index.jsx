@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   return (
-    <Page>
+    <Page title="EasyRoom: Welcome to EasyRoom!">
       {isAdmin ? (
         <>
           <HomeAdmin id={id} />
